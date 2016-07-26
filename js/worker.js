@@ -1,0 +1,1 @@
+self.addEventListener('message', function(e) {	switch (e.data) {		case 'play':			setInterval(function() {				self.postMessage('firePlay');			}, 60000);			break;		case 'updateClock':			setInterval(function() {				self.postMessage('fireUpdateClock');			}, 60000);			break;	};}, false);

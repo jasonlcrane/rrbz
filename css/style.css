@@ -1,0 +1,31 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    max-width: 30em;
+    margin: 0 auto;
+}
+
+.wrap-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#clock {
+    color: #4d1d77;
+    font-size: 122px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.ampm {
+    color: #a3a9ac;
+    font-size: 58px;
+}
+
+#alma_mater-words p {
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    font-size: 30px;
+    margin: 0 0 15px;
+}
