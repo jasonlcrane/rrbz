@@ -1,3 +1,5 @@
+var worker;
+
 var rrbz = (function( w, undefined ) {
 
     function play() {
@@ -42,7 +44,7 @@ var rrbz = (function( w, undefined ) {
     // set up web worker
     function initWebWorker() {
 
-        var worker = new Worker("worker.js");
+        worker = new Worker("worker.js");
 
         // post a message to the web worker
         worker.postMessage('play');
