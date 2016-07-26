@@ -63,7 +63,7 @@ var rrbz = (function( w, undefined ) {
 
     function aboutMe() {
         console.info('You like TCU and web development too? Awesome! I spent about ten minutes on this, let me know if you want to make it better.');
-        console.info('https://github.com/jasonlcrane');
+        console.info('https://github.com/jasonlcrane/rrbz');
     }
 
     return {
