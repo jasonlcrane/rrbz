@@ -42,7 +42,7 @@ var rrbz = (function( w, undefined ) {
     // set up web worker
     function initWebWorker() {
 
-        var worker = new Worker("../js/worker.js");
+        var worker = new Worker("worker.js");
 
         // post a message to the web worker
         worker.postMessage('play');
