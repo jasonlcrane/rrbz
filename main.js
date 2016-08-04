@@ -12,6 +12,7 @@ var rrbz = (function( w, undefined ) {
         if ( min === 0 ) {
             // play the alma mater
             document.getElementById('alma_mater').play();
+            trackPlay();
         }
     }
 
@@ -64,9 +65,42 @@ var rrbz = (function( w, undefined ) {
     }
 
     function aboutMe() {
-        console.info('You like TCU and web development too? Awesome! I spent about ten minutes on this, let me know if you want to make it better.');
+        console.info('You like TCU and web development too? Awesome! I spent about half an hour on this, so let me know if you want to make it better, or if you have better audio.');
         console.info('https://github.com/jasonlcrane/rrbz');
     }
+
+    // track some events
+    function trackPlay() {
+        if (typeof(ga) !== "undefined") {
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'Audio',
+                eventAction: 'play',
+                eventLabel: 'Alma Mater'
+            });
+        }
+    }
+
+    function handleOutboundLinkClicks(event) {
+        console.log(event);
+        if (typeof(ga) !== "undefined") {
+            ga('send', 'event', {
+                eventCategory: 'Outbound Link',
+                eventAction: 'click',
+                eventLabel: event.target.href,
+                transport: 'beacon'
+            });
+        }
+    }
+
+    function trackOutboundLinkClicks() {
+        var anchors = document.getElementsByTagName("a");
+        for (var i = 0; i < anchors.length; i++) {
+            var current = anchors[i];
+            current.addEventListener('click', handleOutboundLinkClicks, false);
+        }
+    }
+
 
     return {
         init: function() {
@@ -78,6 +112,9 @@ var rrbz = (function( w, undefined ) {
 
             // start the web worker process
             initWebWorker();
+
+            // track outbound link clicks
+            trackOutboundLinkClicks();
 
             // tell people looking in console who I am
             aboutMe();
